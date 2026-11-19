@@ -1,0 +1,351 @@
+
+/*
+Copyright (c) 2026 Bisan Subba.
+All rights reserved.
+
+Project: Bsun Math Prediction
+Version: 1.0
+Author: Bisan Subba
+*/
+
+/* =====================================
+   COLOURS AND GLOBAL STYLES
+===================================== */
+
+:root {
+  color-scheme: dark;
+
+  --bg: #0c1d3a;
+  --panel: #17345f;
+  --border: #35547b;
+  --accent: #83bfff;
+  --muted: #bfd7ff;
+  --success: #79e6b7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 18px 12px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+
+  background: linear-gradient(
+    145deg,
+    #071327,
+    #173e73
+  );
+}
+
+/* =====================================
+   MAIN CONTAINER
+===================================== */
+
+.app {
+  max-width: 480px;
+  margin: auto;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+header {
+  text-align: center;
+  padding: 16px 0 22px;
+}
+
+h1 {
+  font-size: clamp(21px, 5vw, 27px);
+  margin: 0 0 10px;
+}
+
+.subtitle,
+.status {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* =====================================
+   CARDS
+===================================== */
+
+.card {
+  padding: 17px;
+  margin-bottom: 15px;
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.12
+  );
+
+  border-radius: 16px;
+
+  background: rgba(
+    23,
+    52,
+    95,
+    0.88
+  );
+}
+
+/* =====================================
+   LOCKED PREDICTION
+===================================== */
+
+.prediction {
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    #17345f,
+    #245b9b
+  );
+}
+
+.prediction h2 {
+  font-size: 13px;
+  letter-spacing: 0.7px;
+  color: var(--muted);
+}
+
+.prediction-value {
+  font-size: 38px;
+  font-weight: bold;
+  margin: 12px 0;
+
+  font-variant-numeric: tabular-nums;
+}
+
+.note {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* =====================================
+   STATUS MESSAGE
+===================================== */
+
+.status {
+  text-align: center;
+  margin: 18px 0;
+}
+
+/* =====================================
+   ROW HEADINGS
+===================================== */
+
+.row-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+
+  margin-bottom: 11px;
+
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* =====================================
+   FIVE DIGIT BOXES
+===================================== */
+
+.digits {
+  display: grid;
+
+  grid-template-columns: repeat(
+    5,
+    minmax(0, 1fr)
+  );
+
+  gap: 8px;
+}
+
+.digit {
+  width: 100%;
+  min-width: 0;
+  height: 58px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #1d365b;
+  color: white;
+
+  text-align: center;
+
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.digit:focus {
+  border: 2px solid var(--accent);
+  background: #28558a;
+}
+
+.digit:disabled {
+  opacity: 1;
+  -webkit-text-fill-color: white;
+}
+
+/* =====================================
+   BSUN AUTOMATIC ROWS
+===================================== */
+
+.computer .digit {
+  background: #234b78;
+}
+
+/* =====================================
+   DIGIT ANIMATION
+===================================== */
+
+.digit.appear {
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0.3;
+    transform: scale(0.75);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin: 7px 0;
+
+  border: 0;
+  border-radius: 11px;
+
+  background: #3978c5;
+  color: white;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background: #4d91e3;
+}
+
+.secondary {
+  background: #24476e;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =====================================
+   FINAL RESULT
+===================================== */
+
+.result {
+  text-align: center;
+}
+
+.result-value {
+  font-size: 38px;
+  font-weight: bold;
+}
+
+/* =====================================
+   PERFECT MATCH EFFECT
+===================================== */
+
+.success {
+  color: var(--success);
+  font-size: 20px;
+  font-weight: bold;
+
+  animation: glow 1.5s ease;
+}
+
+@keyframes glow {
+  50% {
+    text-shadow: 0 0 18px var(--success);
+  }
+}
+
+/* =====================================
+   HOW TO PLAY
+===================================== */
+
+.instructions {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.instructions h3 {
+  color: white;
+  margin-top: 0;
+}
+
+/* =====================================
+   COPYRIGHT FOOTER
+===================================== */
+
+footer {
+  padding: 18px;
+
+  text-align: center;
+
+  color: #9bb6d8;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* =====================================
+   SMALL MOBILE SCREENS
+===================================== */
+
+@media (max-width: 360px) {
+  .digit {
+    height: 49px;
+    font-size: 21px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+}
+
+/* =====================================
+   ACCESSIBILITY
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+  }
+}
