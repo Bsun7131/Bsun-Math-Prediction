@@ -412,7 +412,7 @@ function newGame() {
 
   animating = false;
 
-  predictionEl.textContent = "?";
+  predictionEl.textContent = "🙏";
 
   predictionNote.textContent =
     "Waiting for your first number";
