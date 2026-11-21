@@ -644,10 +644,7 @@ document.addEventListener(
    BUTTON EVENTS
 ===================================== */
 
-confirmBtn.addEventListener(
-  "click",
-  confirmRow
-);
+
 
 revealBtn.addEventListener(
   "click",
