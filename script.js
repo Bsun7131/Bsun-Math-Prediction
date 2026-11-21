@@ -163,7 +163,7 @@ function createBoard() {
           Math.min(c + pasted.length, 4)
         ].focus();
 
-        updateConfirmButton();
+        checkAutoConfirm(r);
       });
 
       digits.appendChild(input);
@@ -178,15 +178,20 @@ function createBoard() {
    PLAYER INPUT
 ===================================== */
 
-function updateConfirmButton() {
+function checkAutoConfirm(row) {
 
-  const inputs = getInputs(currentRow);
+  if (animating || row !== currentRow) return;
+  if (rows[row] !== null) return;
 
-  confirmBtn.disabled =
-    animating ||
-    inputs.some(
-      input => !/^\d$/.test(input.value)
-    );
+  const inputs = getInputs(row);
+
+  const complete = inputs.every(
+    input => /^\d$/.test(input.value)
+  );
+
+  if (complete) {
+    confirmRow();
+  }
 }
 
 function enableRow(row) {
@@ -202,9 +207,7 @@ function enableRow(row) {
   statusEl.textContent =
     `Your turn — enter Row ${row + 1}.`;
 
-  confirmBtn.classList.remove("hidden");
-
-  updateConfirmButton();
+  
 }
 
 function readRow(row) {
@@ -245,7 +248,7 @@ async function animateComputerRow(
 
   animating = true;
 
-  confirmBtn.classList.add("hidden");
+  
 
   setRowState(row, "Entering...");
 
