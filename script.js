@@ -283,7 +283,7 @@ async function animateComputerRow(
 
 async function confirmRow() {
 
-  if (animating || confirmBtn.disabled) return;
+  if (animating) return;
 
   const row = currentRow;
 
@@ -295,7 +295,7 @@ async function confirmRow() {
 
   lockRow(row);
 
-  confirmBtn.classList.add("hidden");
+  
 
   /* First row: lock prediction */
 
