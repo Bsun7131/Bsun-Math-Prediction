@@ -18,7 +18,6 @@ const board = document.getElementById("gameBoard");
 const predictionEl = document.getElementById("prediction");
 const predictionNote = document.getElementById("predictionNote");
 const statusEl = document.getElementById("status");
-const confirmBtn = document.getElementById("confirmBtn");
 const revealBtn = document.getElementById("revealBtn");
 const resultCard = document.getElementById("resultCard");
 const finalTotalEl = document.getElementById("finalTotal");
