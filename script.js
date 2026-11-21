@@ -18,7 +18,7 @@ const board = document.getElementById("gameBoard");
 const predictionEl = document.getElementById("prediction");
 const predictionNote = document.getElementById("predictionNote");
 const statusEl = document.getElementById("status");
-const confirmBtn = document.getElementById("confirmBtn");
+// Rows are confirmed automatically.
 const revealBtn = document.getElementById("revealBtn");
 const resultCard = document.getElementById("resultCard");
 const finalTotalEl = document.getElementById("finalTotal");
@@ -110,17 +110,17 @@ function createBoard() {
 
       input.addEventListener("input", () => {
 
-        if (input.disabled || animating) return;
+  if (input.disabled || animating) return;
 
-        input.value =
-          input.value.replace(/\D/g, "").slice(-1);
+  input.value =
+    input.value.replace(/\D/g, "").slice(-1);
 
-        if (input.value && c < 4) {
-          getInputs(r)[c + 1].focus();
-        }
+  if (input.value && c < 4) {
+    getInputs(r)[c + 1].focus();
+  }
 
-        updateConfirmButton();
-      });
+  checkAutoConfirm(r);
+});
 
       /* Backspace navigation */
 
